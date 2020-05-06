@@ -19,6 +19,15 @@ dataBinding
         }
     }
     
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    
 viewModel and LiveData commonly used
 
     def lifecycle_version = "2.2.0"
