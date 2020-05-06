@@ -93,6 +93,13 @@ Room
     }
 Navigation
 
+    //(Project:AppName)
+    dependencies {
+        def navigation_version = "2.3.0-alpha06"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
+        }
+        
+    //(Module:app)
     dependencies {
       def nav_version = "2.3.0-alpha06"
       
