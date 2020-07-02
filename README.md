@@ -5,8 +5,8 @@ viewBinding
 
     android {
         ...
-        viewBinding {
-            enabled = true
+       buildFeatures {
+            viewBinding = true
         }
     }
   
@@ -30,16 +30,19 @@ dataBinding
     
 viewModel and LiveData commonly used
 
-    def lifecycle_version = "2.2.0"
+        dependencies {
+            ...
+        def lifecycle_version = "2.2.0"
 
-    // ViewModel
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    // LiveData
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
-
+        // ViewModel
+        implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+        // LiveData
+        implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+        }
 viewModel and liveData
 
     dependencies {
+            ...
         def lifecycle_version = "2.2.0"
         def arch_version = "2.1.0"
 
@@ -72,12 +75,16 @@ viewModel and liveData
     }
     
 Room
-
+     
+     // add the line below to the top of your build.Gradle(Module:app) screen
+     apply plugin: 'kotlin-kapt'
+    
     dependencies {
+            ...
       def room_version = "2.2.5"
 
       implementation "androidx.room:room-runtime:$room_version"
-      kapt "androidx.room:room-compiler:$room_version" // For Kotlin use kapt instead of annotationProcessor
+      kapt "androidx.room:room-compiler:$room_version"
 
       // optional - Kotlin Extensions and Coroutines support for Room
       implementation "androidx.room:room-ktx:$room_version"
@@ -91,19 +98,21 @@ Room
       // Test helpers
       testImplementation "androidx.room:room-testing:$room_version"
     }
+    
 Navigation
 
     //(Project:AppName)
     dependencies {
-        def navigation_version = "2.3.0-alpha06"
+            ...
+        def navigation_version = "2.3.0"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
         }
         
     //(Module:app)
     dependencies {
-      def nav_version = "2.3.0-alpha06"
+            ...
+      def nav_version = "2.3.0"
       
-      // Kotlin
       implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
       implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
@@ -117,6 +126,7 @@ Navigation
 workManager
 
     dependencies {
+            ...
       def work_version = "2.3.4"
 
         // Kotlin + coroutines
@@ -135,6 +145,7 @@ workManager
 paging 
 
     dependencies {
+            ...
       def paging_version = "2.1.2"
 
       implementation "androidx.paging:paging-runtime:$paging_version" // For Kotlin use paging-runtime-ktx
