@@ -127,7 +127,7 @@ workManager
 
     dependencies {
             ...
-      def work_version = "2.3.4"
+        def work_version = "2.3.4"
 
         // Kotlin + coroutines
         implementation "androidx.work:work-runtime-ktx:$work_version"
@@ -146,17 +146,25 @@ paging
 
     dependencies {
             ...
-      def paging_version = "2.1.2"
+          def paging_version = "2.1.2"
 
-      implementation "androidx.paging:paging-runtime:$paging_version" // For Kotlin use paging-runtime-ktx
+          implementation "androidx.paging:paging-runtime:$paging_version" // For Kotlin use paging-runtime-ktx
 
-      // alternatively - without Android dependencies for testing
-      testImplementation "androidx.paging:paging-common:$paging_version" // For Kotlin use paging-common-ktx
+          // alternatively - without Android dependencies for testing
+          testImplementation "androidx.paging:paging-common:$paging_version" // For Kotlin use paging-common-ktx
 
-      // optional - RxJava support
-      implementation "androidx.paging:paging-rxjava2:$paging_version" // For Kotlin use paging-rxjava2-ktx
-    }
+          // optional - RxJava support
+          implementation "androidx.paging:paging-rxjava2:$paging_version" // For Kotlin use paging-rxjava2-ktx
+        }
 
+preference
+
+    dependencies {
+            ...
+        def preference_version = "1.1.1"
+        
+        implementation "androidx.preference:preference-ktx:$preference_version"
+}
 
 
 
