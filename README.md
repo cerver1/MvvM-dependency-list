@@ -6,7 +6,7 @@ viewBinding
     android {
         ...
        buildFeatures {
-            viewBinding = true
+            viewBinding true
         }
     }
   
@@ -14,24 +14,24 @@ dataBinding
 
     android {
         ...
-        dataBinding {
-            enabled = true
+            buildFeatures {
+                dataBinding true
+            }
         }
-    }
-    
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+        compileOptions {
+            sourceCompatibility JavaVersion.VERSION_1_8
+            targetCompatibility JavaVersion.VERSION_1_8
+        }
+
+        kotlinOptions {
+            jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
     
 viewModel and LiveData commonly used
 
-        dependencies {
-            ...
+    dependencies {
+        ...
         def lifecycle_version = "2.2.0"
 
         // ViewModel
@@ -39,6 +39,7 @@ viewModel and LiveData commonly used
         // LiveData
         implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
         }
+        
 viewModel and liveData
 
     dependencies {
@@ -80,23 +81,31 @@ Room
      apply plugin: 'kotlin-kapt'
     
     dependencies {
-            ...
-      def room_version = "2.2.5"
+        ...
+          def room_version = "2.2.5"
+          implementation "androidx.room:room-runtime:$room_version"      
+          implementation "androidx.room:room-ktx:$room_version"
+          kapt "androidx.room:room-compiler:$room_version"
 
-      implementation "androidx.room:room-runtime:$room_version"
-      kapt "androidx.room:room-compiler:$room_version"
+          // optional - RxJava support for Room
+          implementation "androidx.room:room-rxjava2:$room_version"
 
-      // optional - Kotlin Extensions and Coroutines support for Room
-      implementation "androidx.room:room-ktx:$room_version"
+          // optional - Guava support for Room, including Optional and ListenableFuture
+          implementation "androidx.room:room-guava:$room_version"
 
-      // optional - RxJava support for Room
-      implementation "androidx.room:room-rxjava2:$room_version"
-
-      // optional - Guava support for Room, including Optional and ListenableFuture
-      implementation "androidx.room:room-guava:$room_version"
-
-      // Test helpers
-      testImplementation "androidx.room:room-testing:$room_version"
+          // Test helpers
+          testImplementation "androidx.room:room-testing:$room_version"
+    }
+    
+Coroutines 
+    
+    dependencies {
+        ...
+            //Coroutines
+            def coroutines_version = '1.3.7'
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines_version"
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines_version"
+            implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1"
     }
     
 Navigation
