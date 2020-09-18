@@ -175,5 +175,13 @@ preference
         implementation "androidx.preference:preference-ktx:$preference_version"
 }
 
+koin
+
+    dependencies {
+            ...
+def kodein_version = '7.0.0'
+    implementation "org.kodein.di:kodein-di-framework-android-x:$kodein_version"
+
+}
 
 
